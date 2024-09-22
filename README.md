@@ -1,4 +1,4 @@
-A commnand-line vanity address generator for Grin. I made this mostly for fun and to familiarize myself with the various Grin libraries written in Rust. The code is currently a lot slower than expected since deriving a slatepack address from a seed seems to be ~1000x slower that deriving it from a raw public key.
+This repo is forked from MakisChristou/grin-vanity. Main change (which was made with the help of ChatGPT) was to add the ability to specify both a prefix and a suffix.
 
 # Installation
 
@@ -32,7 +32,7 @@ With Seed:     drastic find quarter number column ready program parent mad novel
 
 
 # Estimated Time
-Guessing a private key with the chosen prefix has an element of luck to it. The following table depicts a rough estimate on what should  be expected on a Ryzen 5950x using 30 threads. Your results may vary.
+Guessing a private key with the chosen prefix/suffix has an element of luck to it. The following table depicts a rough estimate on what should be expected on a Ryzen 5950x using 30 threads. Your results may vary.
 
 | Prefix        | Eta        |
 | ------------- | ---------- |
@@ -61,7 +61,8 @@ A vanity slatepack address generator
 Usage: grin-vanity [OPTIONS]
 
 Options:
-  -p, --pattern <PATTERN>    Desired pattern [default: grin1234]
+  -p, --prefix <PREFIX>      Desired prefix pattern [default: grin1234]
+  -s, --suffix <SUFFIX>      Desired suffix pattern
   -t, --threads <THREADS>    Threads [default: 1]
   -i, --interval <INTERVAL>  Refresh Interval [default: 1]
   -h, --help                 Print help
