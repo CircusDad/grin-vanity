@@ -4,9 +4,13 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 pub struct Args {
-    /// Desired pattern
+    /// Desired prefix pattern
     #[arg(short, long, default_value_t = String::from("grin1234"))]
-    pub pattern: String,
+    pub prefix: String,
+
+    /// Desired suffix pattern
+    #[arg(short = 's', long)]
+    pub suffix: Option<String>,  // Optional suffix pattern
 
     /// Threads
     #[arg(short, long, default_value_t = 1)]
